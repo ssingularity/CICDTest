@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     @RequestMapping("/Test")
     public String test(){
-        return "hello world, hello ci/cd modified";
+        return "hello world, hello ci/cd modified modifieds";
     }
 }
