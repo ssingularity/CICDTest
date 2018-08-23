@@ -1,8 +1,8 @@
 pipeline:
   publish:
     image: plugins/docker
-    registry: 172.18.51.9:5000
-    repo: 172.18.51.9:5000/cicdtest
+    registry: 47.106.8.47:5000
+    repo: 47.106.8.47:5000/cicdtest
     tags: latest
     insecure: true
   deploy:
