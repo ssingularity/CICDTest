@@ -1,10 +1,10 @@
 pipeline:
   publish:
     image: plugins/docker
-    registry: 47.106.8.47:5000
-    repo: 47.106.8.47:5000/cicdtest
+    registry: registry.cn-hangzhou.aliyuncs.com
+    repo: registry.cn-hangzhou.aliyuncs.com/pipipan/hello
+    secrets: [docker_username, docker_password]
     tags: latest
-    insecure: true
   deploy:
     image: appleboy/drone-ssh
     host: 47.106.8.47
