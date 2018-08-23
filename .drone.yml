@@ -3,6 +3,7 @@ pipeline:
         image: appleboy/drone-ssh
         host: 47.106.8.47
         username: root
+        secrets:
         port: 22
         script:
           - cd /root/shell
