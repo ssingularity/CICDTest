@@ -2,12 +2,12 @@ FROM registry.cn-hangzhou.aliyuncs.com/pipipan/maven AS build-env
 VOLUME /tmp
 WORKDIR /app
 RUN mkdir -p /app
-RUN cd /app
 ADD . /app
+RUN cd /app
 RUN ["/usr/local/bin/mvn-entrypoint.sh","mvn","package","-DskipTests"]
 
 FROM openjdk:8-jre-alpine
-COPY --from=build-env /app/target/*.jar /app.jar
+COPY --from=build-env /app/target/cicdtest-0.0.1-SNAPSHOT.jar /app.jar
 ENV JAVA_OPTS=""
 ENV SERVER_PORT 8080
 EXPOSE ${SERVER_PORT}
