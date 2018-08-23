@@ -1,10 +1,16 @@
 pipeline:
+  publish:
+    image: plugins/docker
+    registry: 172.18.51.9:5000
+    repo: 172.18.51.9:5000/cicdtest
+    tags: latest
+    insecure: true
   deploy:
-        image: appleboy/drone-ssh
-        host: 47.106.8.47
-        username: root
-        secrets: [ ssh_password ]
-        port: 22
-        script:
-          - cd /root/shell
-          - ./deploy.sh
+    image: appleboy/drone-ssh
+    host: 47.106.8.47
+    username: root
+    secrets: [ ssh_password ]
+    port: 22
+    script:
+    - cd /root/shell
+    - ./deploy.sh hello
