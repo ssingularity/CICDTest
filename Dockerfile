@@ -1,9 +1,12 @@
-FROM maven:3.3-jdk-8
+FROM registry.cn-hangzhou.aliyuncs.com/acs/maven:3-jdk-8
 VOLUME /tmp
-RUN mkdir /app
-ADD ./ /app
-RUN cd /app && mvn clean package -DskipTests
-RUN chomd a+x /app/runboot.sh
 WORKDIR /app
+RUN mkdir /app
+ADD ./pom.xml /app
+RUN cd /app
+RUN ["/usr/local/bin/mvn-entrypoint.sh","mvn","package","clean","--fail-never","-DskipTests"]
+ADD . /app
+RUN ["/usr/local/bin/mvn-entrypoint.sh","mvn","package","-DskipTests"]
+RUN chomd a+x /app/runboot.sh
 EXPOSE 8080
 CMD /app/runboot.sh
