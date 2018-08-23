@@ -7,6 +7,6 @@ RUN cd /app
 RUN ["/usr/local/bin/mvn-entrypoint.sh","mvn","package","clean","--fail-never","-DskipTests"]
 ADD . /app
 RUN ["/usr/local/bin/mvn-entrypoint.sh","mvn","package","-DskipTests"]
-RUN chomd a+x /app/runboot.sh
+RUN chmod a+x /app/runboot.sh
 EXPOSE 8080
 CMD /app/runboot.sh
