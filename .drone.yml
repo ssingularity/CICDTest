@@ -13,4 +13,4 @@ pipeline:
     port: 22
     script:
     - cd /root/shell
-    - ./deploy.sh hello
+    - ./deploy.sh hello 
